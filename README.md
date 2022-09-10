@@ -1,4 +1,4 @@
-# ITV Content Technology Coding Exercise
+# Thumbnail creation tool
 
 Please read the [exercise instructions](instructions.md).
 
