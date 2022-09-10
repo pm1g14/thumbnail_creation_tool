@@ -19,4 +19,16 @@ object InputParser {
     }
   }
 
+  def validatePath(path: String): Either[ValidationErrorCode, File] = {
+    try {
+      val file = new File(path)
+      file.exists() match {
+        case true => Right(file)
+        case false => Left(PathNotFound)
+      }
+    } catch {
+      case e: Exception => Left(PathNotFound)
+    }
+  }
+
 }

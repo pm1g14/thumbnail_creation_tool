@@ -21,7 +21,6 @@ object MetadataHttpClient {
 class MetadataServiceClient extends MetadataHttpClient.Service with JsonUtils {
   implicit val system = ActorSystem()
   import system.dispatcher
-
   override def getMetadataForAsset(assetId: String): Future[Metadata] = {
     val request = Get(s"https://cdfr062ui5.execute-api.eu-west-1.amazonaws.com/playground/${assetId}/metadata")
     Http().singleRequest(request).flatMap(r => Unmarshal(r.entity).to[Metadata])

@@ -15,6 +15,9 @@ lazy val root = (project in file("."))
     libraryDependencies ++= mainDependencies ++ testDependencies
   )
 
+libraryDependencies += "org.typelevel" %% "cats-core" % "2.7.0"
+
+
 val AkkaVersion = "2.6.14"
 val AkkaHttpVersion = "10.2.7"
 libraryDependencies ++= Seq(

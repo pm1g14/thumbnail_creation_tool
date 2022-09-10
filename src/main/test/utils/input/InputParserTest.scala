@@ -21,4 +21,14 @@ class InputParserTest  extends AnyFlatSpec with Matchers{
     InputParser.getDurationFromStr("01:00:00") shouldBe Right(Duration(1, HOURS))
   }
 
+  "validatePath" should "return new file for valid path" in {
+    InputParser.validatePath("C:\\development\\cst-eng-pm1g14\\resources\\video\\samples\\valid.mov") shouldBe
+      Right(new File("C:\\development\\cst-eng-pm1g14\\resources\\video\\samples\\valid.mov"))
+  }
+
+  "validatePath" should "return PathNotFound for invalid path" in {
+    InputParser.validatePath("C:\\cst-eng-pm1g14\\resources\\video\\samples\\valid.mov") shouldBe
+      Left(PathNotFound)
+  }
+
 }
